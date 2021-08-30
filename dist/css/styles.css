@@ -1,0 +1,183 @@
+/* Box sizing rules */
+@import url(https://allfont.ru/allfont.css?fonts=franklin-gothic-demi-cond);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+body header {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: #070707;
+  height: 80px;
+}
+body header .header {
+  display: flex;
+  max-width: 1000px;
+  width: 100%;
+  height: 60px;
+  border-top: 1px solid #6d6d6d;
+}
+body header .header .logo {
+  display: flex;
+  align-items: center;
+  min-width: 350px;
+  background: linear-gradient(to right, #33b2d9, #0097c9);
+}
+body header .header .logo img {
+  max-width: 100%;
+  height: auto;
+}
+body header .header .logo p {
+  font-family: "Franklin Gothic Medium";
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+}
+body header .header .logo .sup {
+  font-size: 8px;
+  padding-bottom: 10px;
+}
+body header .header .logo .plus {
+  font-size: 114px;
+  position: relative;
+  left: 35px;
+}
+body header .header .tagline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 320px;
+  width: 100%;
+  padding: 0 10px 0 40px;
+  background: linear-gradient(to right, #1f1f1f, #0b0b0b);
+}
+body header .header .tagline a {
+  font-family: "Franklin Gothic Medium";
+  font-size: 12px;
+  color: #ffffff;
+  text-decoration: none;
+}
+body header .header .search {
+  display: flex;
+  align-items: center;
+  max-width: 330px;
+  width: 100%;
+  background-color: #2c2c2c;
+}
+body header .header .search p {
+  font-family: "Franklin Gothic Medium";
+  font-size: 13px;
+  color: #ffffff;
+  margin: 0 20px 0 20px;
+}
+body header .header .search form {
+  width: 220px;
+  height: 30px;
+  display: flex;
+}
+body header .header .search form input[type=search]::placeholder, body header .header .search form input[type=search] {
+  /* extend: font in the search box */
+  color: #c5c2c0;
+  font-size: 12px;
+  font-style: italic;
+  font-family: Arial;
+}
+body header .header .search form input[type=search] {
+  border: 2px solid #6d6d6d;
+  border-right: hidden;
+  outline: none;
+  width: 180px;
+  background: #636363;
+}
+body header .header .search form input[type=submit] {
+  width: 40px;
+  border: 2px solid #6d6d6d;
+  border-left: hidden;
+  background: url(../images/header/Search-Icon-copy1.png) no-repeat 50% 50%;
+  background-color: #636363;
+  cursor: pointer;
+}
+body .wrapper-site {
+  background-color: #2c2c2c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body .wrapper-site main {
+  max-width: 1000px;
+  background-color: #ffffff;
+}
