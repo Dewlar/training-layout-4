@@ -1,9 +1,14 @@
 @import "reset";
 @import url(https://allfont.ru/allfont.css?fonts=franklin-gothic-demi-cond);
 
+*{
+  margin: 0;
+  padding: 0;
+}
 body {
   display: flex;
   flex-direction: column;
+  $link-color: #0085b8;
 
   header {
     display: flex;
@@ -32,22 +37,22 @@ body {
           height: auto;
         }
 
-        p{
-            font-family: 'Franklin Gothic Medium';
-            font-size: 24px;
-            font-weight: bold;
-            color: $font-color;
+        p {
+          font-family: "Franklin Gothic Medium";
+          font-size: 24px;
+          font-weight: bold;
+          color: $font-color;
         }
 
-        .sup{
-            font-size: 8px;
-            padding-bottom: 10px;
+        .sup {
+          font-size: 8px;
+          padding-bottom: 10px;
         }
 
-        .plus{
-            font-size: 114px;
-            position: relative;
-            left: 35px;
+        .plus {
+          font-size: 114px;
+          position: relative;
+          left: 35px;
         }
       }
 
@@ -127,10 +132,309 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    // justify-content: center;
 
     main {
+      display: grid;
+      grid-template-columns: auto 330px;
+      // align-items: center;
+      grid-template-areas: "cntnt sdbr";
+
       max-width: 1000px;
       background-color: #ffffff;
+
+      .content {
+        grid-area: cntnt;
+        // background-color: grey;
+        padding: 30px 20px 0 20px;
+        font-family: Arial;
+        font-size: 13px;
+
+        img {
+          max-width: 100%;
+          height: auto;
+          float: left;
+          margin: 0 20px 20px 0;
+        }
+
+        .menu {
+          ul {
+            display: flex;
+            padding: 0;
+            margin: 10px 0 0 0;
+            list-style: none;
+
+            li {
+              a {
+                text-decoration: none;
+                color: $link-color;
+                font-size: 14px;
+                font-family: Arial;
+              }
+
+              &::after {
+                content: "/";
+                margin: 0 7px;
+              }
+
+              &:last-child::after {
+                content: none;
+              }
+            }
+          }
+        }
+
+        h2 {
+          font-family: Arial;
+          font-weight: bold;
+          font-size: 30px;
+          margin: 20px 0;
+          line-height: 30px;
+        }
+
+        p {
+          margin: 20px 0 0 0;
+
+          &:first-of-type {
+            margin-bottom: 40px;
+          }
+        }
+
+        .ul-none {
+          list-style: none;
+        }
+
+        ol{
+          padding: 0 0 0 40px;
+          margin: 13px 0;
+        }
+
+        .ul-dot {
+          list-style: "*  ";
+          margin: 13px 0 50px 0;
+          padding: 0 0 0 40px;
+        }
+
+        .text-ind {
+          text-indent: 25px;
+        }
+      }
+
+      .sidebar {
+        display: grid;
+        grid-template-rows: repeat(31, 50px);
+        grid-area: sdbr;
+        background-color: #e9e5e4;
+        $border-sbar:1px #D2CECD solid;
+
+        .subscribe{/*need JS for onclick event*/
+          grid-row: 1/2;
+          display: flex;
+          align-items: center;
+          padding: 0 18px 0 18px;
+          justify-content: space-between;
+          border: $border-sbar;   
+          background-image: url(../images/RSSIcon.png);
+          background-repeat: no-repeat;
+          background-position: 95% 50%; 
+          cursor: pointer;
+
+          a{
+            font-family: Arial;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333333;
+          }
+        }
+
+        .banners{
+          grid-row: 2/9;
+          padding: 10px;
+          font-family: Arial;
+          font-size: 10px;
+          border: $border-sbar;
+          text-decoration: none;
+
+          img{
+            float: left;
+            margin: 9px;
+          }
+
+          a{
+            text-decoration: none;
+            color: #424242;
+
+            &:last-child{
+              margin: 0 0 0 50px;
+            }
+          }
+        }
+
+        .navigation{
+          grid-row: 9/17;
+          border: $border-sbar;
+          padding: 20px;
+
+          h3{
+            font-family: Arial;
+            font-weight: bold;
+            font-size: 24px;
+            color: #333333;
+          }
+          
+          .menu-box{
+           
+          }
+        }
+
+        .community{
+          grid-row: 17/25;
+          border: $border-sbar;
+          padding: 20px;
+
+          h3{
+            font-family: Arial;
+            font-weight: bold;
+            font-size: 24px;
+            color: #333333;
+          }
+        }
+
+        .nikon{
+          grid-row: 25/32;
+          background-image: url(../images/nikon.png);
+          background-repeat: no-repeat;
+          background-position: center center;
+          border: $border-sbar;
+
+          a{
+            font-family: Arial;
+            font-size: 12px;
+            text-decoration: none;
+            color: #000000;
+            position: relative;
+            top:78%;
+            left:35%;
+          }
+        }
+      }
+    }
+
+    footer {
+      max-width: 1000px;
+      background-color: #000000;
+      font-family: Arial;
+      font-size: 15px;
+      color: #484848;
+
+      a {
+        color: $link-color;
+        text-decoration: none;
+      }
+
+      .subfooter {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 10px;
+        align-items: center;
+        grid-template-areas:
+          "twitter about friends"
+          "twitter write friends";
+        min-height: 465px;
+        background-color: #070707;
+        font-size: 13px;
+        %icon-style {
+          img {
+            float: left;
+            margin: 0 5px 0 0;
+          }
+        }
+
+        h3 {
+          color: #cdcdcd;
+          font-family: Arial;
+          font-weight: bold;
+          font-size: 20px;
+        }
+
+        ul {
+          list-style: none;
+          min-width: 100%;
+          padding: 0;
+
+          li {
+            border-bottom: 1px solid #121212;
+            padding: 10px 0 10px 0;
+
+            &:last-child {
+              border-bottom: none;
+            }
+          }
+        }
+
+        .twitter-updates {
+          grid-area: twitter;
+          padding: 0 20px;
+          @extend %icon-style;
+        }
+
+        .about-us {
+          grid-area: about;
+          @extend %icon-style;
+          p {
+            margin: 20px 0 20px 0;
+          }
+        }
+
+        .write-for-us {
+          grid-area: write;
+          @extend %icon-style;
+          p {
+            margin: 20px 0 20px 0;
+          }
+        }
+
+        .our-friends {
+          grid-area: friends;
+          @extend %icon-style;
+          padding: 0 20px;
+        }
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 55px;
+        %margin-r {
+          p {
+            margin-right: 5px;
+          }
+        }
+
+        .copyright {
+          margin: 0 auto 0 25px;
+        }
+
+        .powered {
+          display: flex;
+          width: 180px;
+          @extend %margin-r;
+
+          &::after {
+            content: "·"; /*внутри не работают спец символы*/
+            margin-left: 10px;
+          }
+        }
+
+        .theme {
+          display: flex;
+          width: 160px;
+          @extend %margin-r;
+        }
+      }
     }
   }
 }

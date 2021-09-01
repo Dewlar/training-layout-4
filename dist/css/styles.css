@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Box sizing rules */
 @import url(https://allfont.ru/allfont.css?fonts=franklin-gothic-demi-cond);
 *,
@@ -73,6 +74,11 @@ select {
     scroll-behavior: auto !important;
   }
 }
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -178,6 +184,240 @@ body .wrapper-site {
   align-items: center;
 }
 body .wrapper-site main {
+  display: grid;
+  grid-template-columns: auto 330px;
+  grid-template-areas: "cntnt sdbr";
   max-width: 1000px;
   background-color: #ffffff;
+}
+body .wrapper-site main .content {
+  grid-area: cntnt;
+  padding: 30px 20px 0 20px;
+  font-family: Arial;
+  font-size: 13px;
+}
+body .wrapper-site main .content img {
+  max-width: 100%;
+  height: auto;
+  float: left;
+  margin: 0 20px 20px 0;
+}
+body .wrapper-site main .content .menu ul {
+  display: flex;
+  padding: 0;
+  margin: 10px 0 0 0;
+  list-style: none;
+}
+body .wrapper-site main .content .menu ul li a {
+  text-decoration: none;
+  color: #0085b8;
+  font-size: 14px;
+  font-family: Arial;
+}
+body .wrapper-site main .content .menu ul li::after {
+  content: "/";
+  margin: 0 7px;
+}
+body .wrapper-site main .content .menu ul li:last-child::after {
+  content: none;
+}
+body .wrapper-site main .content h2 {
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 30px;
+  margin: 20px 0;
+  line-height: 30px;
+}
+body .wrapper-site main .content p {
+  margin: 20px 0 0 0;
+}
+body .wrapper-site main .content p:first-of-type {
+  margin-bottom: 40px;
+}
+body .wrapper-site main .content .ul-none {
+  list-style: none;
+}
+body .wrapper-site main .content ol {
+  padding: 0 0 0 40px;
+  margin: 13px 0;
+}
+body .wrapper-site main .content .ul-dot {
+  list-style: "*  ";
+  margin: 13px 0 50px 0;
+  padding: 0 0 0 40px;
+}
+body .wrapper-site main .content .text-ind {
+  text-indent: 25px;
+}
+body .wrapper-site main .sidebar {
+  display: grid;
+  grid-template-rows: repeat(31, 50px);
+  grid-area: sdbr;
+  background-color: #e9e5e4;
+}
+body .wrapper-site main .sidebar .subscribe {
+  /*need JS for onclick event*/
+  grid-row: 1/2;
+  display: flex;
+  align-items: center;
+  padding: 0 18px 0 18px;
+  justify-content: space-between;
+  border: 1px #D2CECD solid;
+  background-image: url(../images/RSSIcon.png);
+  background-repeat: no-repeat;
+  background-position: 95% 50%;
+  cursor: pointer;
+}
+body .wrapper-site main .sidebar .subscribe a {
+  font-family: Arial;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333333;
+}
+body .wrapper-site main .sidebar .banners {
+  grid-row: 2/9;
+  padding: 10px;
+  font-family: Arial;
+  font-size: 10px;
+  border: 1px #D2CECD solid;
+  text-decoration: none;
+}
+body .wrapper-site main .sidebar .banners img {
+  float: left;
+  margin: 9px;
+}
+body .wrapper-site main .sidebar .banners a {
+  text-decoration: none;
+  color: #424242;
+}
+body .wrapper-site main .sidebar .banners a:last-child {
+  margin: 0 0 0 50px;
+}
+body .wrapper-site main .sidebar .navigation {
+  grid-row: 9/17;
+  border: 1px #D2CECD solid;
+  padding: 20px;
+}
+body .wrapper-site main .sidebar .navigation h3 {
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 24px;
+  color: #333333;
+}
+body .wrapper-site main .sidebar .community {
+  grid-row: 17/25;
+  border: 1px #D2CECD solid;
+  padding: 20px;
+}
+body .wrapper-site main .sidebar .community h3 {
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 24px;
+  color: #333333;
+}
+body .wrapper-site main .sidebar .nikon {
+  grid-row: 25/32;
+  background-image: url(../images/nikon.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: 1px #D2CECD solid;
+}
+body .wrapper-site main .sidebar .nikon a {
+  font-family: Arial;
+  font-size: 12px;
+  text-decoration: none;
+  color: #000000;
+  position: relative;
+  top: 78%;
+  left: 35%;
+}
+body .wrapper-site footer {
+  max-width: 1000px;
+  background-color: #000000;
+  font-family: Arial;
+  font-size: 15px;
+  color: #484848;
+}
+body .wrapper-site footer a {
+  color: #0085b8;
+  text-decoration: none;
+}
+body .wrapper-site footer .subfooter {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 10px;
+  align-items: center;
+  grid-template-areas: "twitter about friends" "twitter write friends";
+  min-height: 465px;
+  background-color: #070707;
+  font-size: 13px;
+}
+body .wrapper-site footer .subfooter .our-friends img, body .wrapper-site footer .subfooter .write-for-us img, body .wrapper-site footer .subfooter .about-us img, body .wrapper-site footer .subfooter .twitter-updates img {
+  float: left;
+  margin: 0 5px 0 0;
+}
+body .wrapper-site footer .subfooter h3 {
+  color: #cdcdcd;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 20px;
+}
+body .wrapper-site footer .subfooter ul {
+  list-style: none;
+  min-width: 100%;
+  padding: 0;
+}
+body .wrapper-site footer .subfooter ul li {
+  border-bottom: 1px solid #121212;
+  padding: 10px 0 10px 0;
+}
+body .wrapper-site footer .subfooter ul li:last-child {
+  border-bottom: none;
+}
+body .wrapper-site footer .subfooter .twitter-updates {
+  grid-area: twitter;
+  padding: 0 20px;
+}
+body .wrapper-site footer .subfooter .about-us {
+  grid-area: about;
+}
+body .wrapper-site footer .subfooter .about-us p {
+  margin: 20px 0 20px 0;
+}
+body .wrapper-site footer .subfooter .write-for-us {
+  grid-area: write;
+}
+body .wrapper-site footer .subfooter .write-for-us p {
+  margin: 20px 0 20px 0;
+}
+body .wrapper-site footer .subfooter .our-friends {
+  grid-area: friends;
+  padding: 0 20px;
+}
+body .wrapper-site footer .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 55px;
+}
+body .wrapper-site footer .footer .theme p, body .wrapper-site footer .footer .powered p {
+  margin-right: 5px;
+}
+body .wrapper-site footer .footer .copyright {
+  margin: 0 auto 0 25px;
+}
+body .wrapper-site footer .footer .powered {
+  display: flex;
+  width: 180px;
+}
+body .wrapper-site footer .footer .powered::after {
+  content: "·";
+  /*внутри не работают спец символы*/
+  margin-left: 10px;
+}
+body .wrapper-site footer .footer .theme {
+  display: flex;
+  width: 160px;
 }
