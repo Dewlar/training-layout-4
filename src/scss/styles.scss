@@ -1,10 +1,11 @@
 @import "reset";
 @import url(https://allfont.ru/allfont.css?fonts=franklin-gothic-demi-cond);
 
-*{
+* {
   margin: 0;
   padding: 0;
 }
+
 body {
   display: flex;
   flex-direction: column;
@@ -204,7 +205,7 @@ body {
           list-style: none;
         }
 
-        ol{
+        ol {
           padding: 0 0 0 40px;
           margin: 13px 0;
         }
@@ -225,21 +226,23 @@ body {
         grid-template-rows: repeat(31, 50px);
         grid-area: sdbr;
         background-color: #e9e5e4;
-        $border-sbar:1px #D2CECD solid;
+        $border-sbar: 1px #d2cecd solid;
+        // border: $border-sbar;
 
-        .subscribe{/*need JS for onclick event*/
+        .subscribe {
+          /*need JS for onclick event*/
           grid-row: 1/2;
           display: flex;
           align-items: center;
           padding: 0 18px 0 18px;
           justify-content: space-between;
-          border: $border-sbar;   
+          border: $border-sbar;
           background-image: url(../images/RSSIcon.png);
           background-repeat: no-repeat;
-          background-position: 95% 50%; 
+          background-position: 95% 50%;
           cursor: pointer;
 
-          a{
+          a {
             font-family: Arial;
             font-size: 18px;
             font-weight: bold;
@@ -248,7 +251,7 @@ body {
           }
         }
 
-        .banners{
+        .banners {
           grid-row: 2/9;
           padding: 10px;
           font-family: Arial;
@@ -256,66 +259,157 @@ body {
           border: $border-sbar;
           text-decoration: none;
 
-          img{
+          img {
             float: left;
             margin: 9px;
           }
 
-          a{
+          a {
             text-decoration: none;
             color: #424242;
 
-            &:last-child{
+            &:last-child {
               margin: 0 0 0 50px;
             }
           }
         }
-
+        
         .navigation{
           grid-row: 9/17;
-          border: $border-sbar;
-          padding: 20px;
-
-          h3{
-            font-family: Arial;
-            font-weight: bold;
-            font-size: 24px;
-            color: #333333;
-          }
-          
-          .menu-box{
-           border: $border-sbar;
-          }
         }
+        
 
-        .community{
+        .community {
           grid-row: 17/25;
-          border: $border-sbar;
-          padding: 20px;
+          // border: $border-sbar;          
+        }
 
-          h3{
+        .navigation, .community {
+          border: $border-sbar;
+          padding: 10px 18px;
+
+          h3 {
             font-family: Arial;
             font-weight: bold;
             font-size: 24px;
             color: #333333;
           }
+
+          .menu-box {
+            border: $border-sbar;
+            width: 290px;
+            height: 322px;
+            //  background-color: rgb(85, 90, 74);
+            
+
+            .topmenu {
+              display: flex;
+              list-style: none;
+              height: 40px;
+
+                .one:hover, .two:hover, .three:hover, .four:hover{
+
+                  .submenu{
+                    display: block;
+                  }
+                  &{
+                    background-color: #ffffff;
+                    border-left: $border-sbar;
+                    border-right: $border-sbar;
+                    border-bottom: none;
+                  }
+                  &:last-child{
+                    border-right: none;
+                  }
+                  &:first-child{
+                    border-left: none;
+                  }
+                }
+
+              
+              li {
+                border-bottom: $border-sbar;
+                position: relative;
+                width: 72px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                a {
+                  font-family: Arial;
+                  font-size: 12px;
+                  font-weight: normal;
+                  text-decoration: none;
+                  color: #424242;
+                }
+                
+                p{
+                  font-family: Arial;
+                  font-size: 12px;
+                  font-weight: normal;
+                  text-decoration: none;
+                  color: #424242;
+                } 
+
+                .submenu {
+                  font-size: 10px;
+                  position: absolute;
+                  padding: 0 10px 0 10px;
+                  top: 40px;
+                  left: 1px;
+                  // border: none;   //efefefefefefefefefefeeeeeeeeeeeeeeeeeeeeee
+                  // border: 3px steelblue;
+                  background-color: #ffffff;
+
+                  &.one1{
+                    left: 1px;
+                  }
+                  &.two2{
+                    left:-72px;
+                  }
+                  &.three3{
+                    left:-144px
+                  }
+                  &.four4{
+                    left:-216px;                    
+                    // margin-left: 1px;
+                  }
+                  &.hidden {
+                    display: none;
+                  }
+
+                  li {
+                    display: flex;
+                    width: 267px;
+                    height: 35px;
+                    padding: 0 3px 0 3px;
+                    justify-content: space-between;
+                    border-bottom: 1px #D8D8D8 solid;
+
+                    &:last-child {
+                      border: none;
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
 
-        .nikon{
+        .nikon {
           grid-row: 25/32;
           background-image: url(../images/nikon.png);
           background-repeat: no-repeat;
           background-position: center center;
           border: $border-sbar;
 
-          a{
+          a {
             font-family: Arial;
             font-size: 12px;
             text-decoration: none;
             color: #000000;
             position: relative;
-            top:78%;
-            left:35%;
+            top: 78%;
+            left: 35%;
           }
         }
       }
