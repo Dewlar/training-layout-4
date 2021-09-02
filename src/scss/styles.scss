@@ -10,15 +10,23 @@ body {
   display: flex;
   flex-direction: column;
   $link-color: #0085b8;
+  $header-font-color: #ffffff;
+  $border-color: #6d6d6d;
+  $bg-main-menu: #ffffff;
 
-  header {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+  .black {
     background-color: #070707;
     height: 80px;
-    $font-color: #ffffff;
-    $border-color: #6d6d6d;
+    @media (max-width: 1000px) {
+      height: 60px;
+    }
+  }
+
+  .wrapper-site {
+    background-color: #2c2c2c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     .header {
       display: flex;
@@ -26,11 +34,12 @@ body {
       width: 100%;
       height: 60px;
       border-top: 1px solid $border-color;
+      margin-top: -60px;
 
       .logo {
         display: flex;
         align-items: center;
-        min-width: 350px;
+        min-width: 330px;
         background: linear-gradient(to right, #33b2d9, #0097c9);
 
         img {
@@ -42,7 +51,7 @@ body {
           font-family: "Franklin Gothic Medium";
           font-size: 24px;
           font-weight: bold;
-          color: $font-color;
+          color: $header-font-color;
         }
 
         .sup {
@@ -53,7 +62,7 @@ body {
         .plus {
           font-size: 114px;
           position: relative;
-          left: 35px;
+          left: 15px;
         }
       }
 
@@ -61,7 +70,6 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        max-width: 320px;
         width: 100%;
         padding: 0 10px 0 40px;
         background: linear-gradient(to right, #1f1f1f, #0b0b0b);
@@ -69,7 +77,7 @@ body {
         a {
           font-family: "Franklin Gothic Medium";
           font-size: 12px;
-          color: $font-color;
+          color: $header-font-color;
           text-decoration: none;
         }
       }
@@ -77,21 +85,24 @@ body {
       .search {
         display: flex;
         align-items: center;
-        max-width: 330px;
-        width: 100%;
+        min-width: 330px;
         background-color: #2c2c2c;
 
         p {
           font-family: "Franklin Gothic Medium";
           font-size: 13px;
-          color: $font-color;
-          margin: 0 20px 0 20px;
+          color: $header-font-color;
+          margin: 0 0 0 20px;
+          @media screen and (max-width: 800px) {
+            display: none;
+          }
         }
 
         form {
-          width: 220px;
+          max-width: 220px;
           height: 30px;
           display: flex;
+          margin: 0 22px;
 
           %input-font {
             /* extend: font in the search box */
@@ -112,6 +123,10 @@ body {
             &::placeholder {
               @extend %input-font;
             }
+
+            @media screen and (max-width: 720px) {
+              width: 90px;
+            }
           }
 
           input[type="submit"] {
@@ -126,28 +141,18 @@ body {
         }
       }
     }
-  }
-
-  .wrapper-site {
-    background-color: #2c2c2c;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    // justify-content: center;
 
     main {
       display: grid;
       grid-template-columns: auto 330px;
-      // align-items: center;
       grid-template-areas: "cntnt sdbr";
 
       max-width: 1000px;
-      background-color: #ffffff;
+      background-color: $bg-main-menu;
 
       .content {
         grid-area: cntnt;
-        // background-color: grey;
-        padding: 30px 20px 0 20px;
+        padding: 30px 20px 20px 20px;
         font-family: Arial;
         font-size: 13px;
 
@@ -164,6 +169,9 @@ body {
             padding: 0;
             margin: 10px 0 0 0;
             list-style: none;
+            @media screen and (max-width: 900px) and (min-width: 800px) {
+              flex-direction: column;
+            }
 
             li {
               a {
@@ -227,7 +235,6 @@ body {
         grid-area: sdbr;
         background-color: #e9e5e4;
         $border-sbar: 1px #d2cecd solid;
-        // border: $border-sbar;
 
         .subscribe {
           /*need JS for onclick event*/
@@ -241,6 +248,7 @@ body {
           background-repeat: no-repeat;
           background-position: 95% 50%;
           cursor: pointer;
+          max-width: 330px;
 
           a {
             font-family: Arial;
@@ -280,7 +288,6 @@ body {
 
         .community {
           grid-row: 17/25;
-          // border: $border-sbar;
         }
 
         .navigation,
@@ -299,7 +306,6 @@ body {
             border: $border-sbar;
             width: 290px;
             height: 322px;
-            //  background-color: rgb(85, 90, 74);
 
             .topmenu {
               display: flex;
@@ -314,7 +320,7 @@ body {
                   display: block;
                 }
                 & {
-                  background-color: #ffffff;
+                  background-color: $bg-main-menu;
                   border-left: $border-sbar;
                   border-right: $border-sbar;
                   border-bottom: none;
@@ -356,9 +362,7 @@ body {
                   padding: 0 10px 0 10px;
                   top: 40px;
                   left: 1px;
-                  // border: none;   //efefefefefefefefefefeeeeeeeeeeeeeeeeeeeeee
-                  // border: 3px steelblue;
-                  background-color: #ffffff;
+                  background-color: $bg-main-menu;
 
                   &.one1 {
                     left: 1px;
@@ -371,7 +375,6 @@ body {
                   }
                   &.four4 {
                     left: -216px;
-                    // margin-left: 1px;
                   }
                   &.hidden {
                     display: none;
@@ -401,6 +404,7 @@ body {
           background-repeat: no-repeat;
           background-position: center center;
           border: $border-sbar;
+          width: 330px;
 
           a {
             font-family: Arial;
@@ -412,6 +416,58 @@ body {
             left: 35%;
           }
         }
+
+        @media screen and (max-width: 800px) {
+          grid-template-rows: repeat(15, 50px);
+          grid-template-columns: 50% 50%;
+          .subscribe {
+            grid-area: 15/2/16/3;
+            border: none;
+          }
+          .navigation {
+            grid-area: 1/1/9/2;
+            border: none;
+          }
+          .community {
+            grid-area: 1/2/9/3;
+            border: none;
+          }
+          .banners {
+            grid-area: 9/1/16/2;
+            border: none;
+          }
+          .nikon {
+            grid-area: 9/2/15/3;
+            border: none;
+          }
+        }
+
+        @media screen and (max-width: 660px) {
+          grid-template-rows: repeat(31, 50px);          
+          grid-template-columns: auto;
+          .subscribe {
+            grid-row: 1/2;
+          }
+          .navigation {
+            grid-row: 9/17;
+          }  
+          .community {
+            grid-row: 17/25;
+          }
+          .banners {
+            grid-row: 2/9;
+          }
+          .nikon {
+            grid-row: 25/32;
+          }
+        }
+      }
+
+      @media screen and (max-width: 800px) {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "cntnt"
+          "sdbr";
       }
     }
 
@@ -436,25 +492,7 @@ body {
         grid-template-areas:
           "twitter about friends"
           "twitter write friends";
-        @media screen and (max-width: 750px) {
-          grid-template-columns: 1fr 1fr;
-          grid-template-areas:
-            "twitter friends"
-            "twitter friends"
-            "about write";
-        }
-        @media screen and (max-width: 550px) {
-          grid-template-columns: 330px;
-          justify-content: center;
-          grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-          grid-template-areas:
-            "twitter"
-            "twitter"
-            "friends"
-            "friends"
-            "about"
-            "write";
-        }
+
         min-height: 465px;
         background-color: #070707;
         font-size: 13px;
@@ -516,6 +554,26 @@ body {
           @extend %icon-style;
           padding: 20px;
         }
+
+        @media screen and (max-width: 750px) {
+          grid-template-columns: 1fr 1fr;
+          grid-template-areas:
+            "twitter friends"
+            "twitter friends"
+            "about write";
+        }
+        @media screen and (max-width: 550px) {
+          grid-template-columns: 330px;
+          justify-content: center;
+          grid-template-rows: repeat(4, 1fr);
+          grid-template-areas:
+            "twitter"
+            "twitter"
+            "friends"
+            "friends"
+            "about"
+            "write";
+        }
       }
 
       .footer {
@@ -541,6 +599,9 @@ body {
           &::after {
             content: "·"; /*внутри не работают спец символы*/
             margin-left: 10px;
+            @media screen and (max-width: 520px) {
+              content: none;
+            }
           }
         }
 
@@ -548,6 +609,18 @@ body {
           display: flex;
           width: 160px;
           @extend %margin-r;
+        }
+      }
+      
+      @media screen and (max-width: 520px) {
+        .powered {
+          flex-direction: column;
+          /* &::after{
+          content: none;   //как обратиться к нему здесь ? в таком виде не работает
+        }   */
+        }
+        .theme {
+          flex-direction: column;
         }
       }
     }
