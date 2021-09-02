@@ -273,18 +273,18 @@ body {
             }
           }
         }
-        
-        .navigation{
+
+        .navigation {
           grid-row: 9/17;
         }
-        
 
         .community {
           grid-row: 17/25;
-          // border: $border-sbar;          
+          // border: $border-sbar;
         }
 
-        .navigation, .community {
+        .navigation,
+        .community {
           border: $border-sbar;
           padding: 10px 18px;
 
@@ -300,33 +300,33 @@ body {
             width: 290px;
             height: 322px;
             //  background-color: rgb(85, 90, 74);
-            
 
             .topmenu {
               display: flex;
               list-style: none;
               height: 40px;
 
-                .one:hover, .two:hover, .three:hover, .four:hover{
-
-                  .submenu{
-                    display: block;
-                  }
-                  &{
-                    background-color: #ffffff;
-                    border-left: $border-sbar;
-                    border-right: $border-sbar;
-                    border-bottom: none;
-                  }
-                  &:last-child{
-                    border-right: none;
-                  }
-                  &:first-child{
-                    border-left: none;
-                  }
+              .one:hover,
+              .two:hover,
+              .three:hover,
+              .four:hover {
+                .submenu {
+                  display: block;
                 }
+                & {
+                  background-color: #ffffff;
+                  border-left: $border-sbar;
+                  border-right: $border-sbar;
+                  border-bottom: none;
+                }
+                &:last-child {
+                  border-right: none;
+                }
+                &:first-child {
+                  border-left: none;
+                }
+              }
 
-              
               li {
                 border-bottom: $border-sbar;
                 position: relative;
@@ -341,14 +341,14 @@ body {
                   text-decoration: none;
                   color: #424242;
                 }
-                
-                p{
+
+                p {
                   font-family: Arial;
                   font-size: 12px;
                   font-weight: normal;
                   text-decoration: none;
                   color: #424242;
-                } 
+                }
 
                 .submenu {
                   font-size: 10px;
@@ -360,17 +360,17 @@ body {
                   // border: 3px steelblue;
                   background-color: #ffffff;
 
-                  &.one1{
+                  &.one1 {
                     left: 1px;
                   }
-                  &.two2{
-                    left:-72px;
+                  &.two2 {
+                    left: -72px;
                   }
-                  &.three3{
-                    left:-144px
+                  &.three3 {
+                    left: -144px;
                   }
-                  &.four4{
-                    left:-216px;                    
+                  &.four4 {
+                    left: -216px;
                     // margin-left: 1px;
                   }
                   &.hidden {
@@ -383,7 +383,7 @@ body {
                     height: 35px;
                     padding: 0 3px 0 3px;
                     justify-content: space-between;
-                    border-bottom: 1px #D8D8D8 solid;
+                    border-bottom: 1px #d8d8d8 solid;
 
                     &:last-child {
                       border: none;
@@ -432,10 +432,29 @@ body {
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr;
         grid-gap: 10px;
-        align-items: center;
+        align-content: space-between;
         grid-template-areas:
           "twitter about friends"
           "twitter write friends";
+        @media screen and (max-width: 750px) {
+          grid-template-columns: 1fr 1fr;
+          grid-template-areas:
+            "twitter friends"
+            "twitter friends"
+            "about write";
+        }
+        @media screen and (max-width: 550px) {
+          grid-template-columns: 330px;
+          justify-content: center;
+          grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+          grid-template-areas:
+            "twitter"
+            "twitter"
+            "friends"
+            "friends"
+            "about"
+            "write";
+        }
         min-height: 465px;
         background-color: #070707;
         font-size: 13px;
@@ -470,13 +489,14 @@ body {
 
         .twitter-updates {
           grid-area: twitter;
-          padding: 0 20px;
+          padding: 20px;
           @extend %icon-style;
         }
 
         .about-us {
           grid-area: about;
           @extend %icon-style;
+          padding: 20px;
           p {
             margin: 20px 0 20px 0;
           }
@@ -485,6 +505,7 @@ body {
         .write-for-us {
           grid-area: write;
           @extend %icon-style;
+          padding: 20px;
           p {
             margin: 20px 0 20px 0;
           }
@@ -493,7 +514,7 @@ body {
         .our-friends {
           grid-area: friends;
           @extend %icon-style;
-          padding: 0 20px;
+          padding: 20px;
         }
       }
 
