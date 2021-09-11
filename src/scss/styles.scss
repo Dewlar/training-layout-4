@@ -14,7 +14,6 @@ body {
   $border-color: #6d6d6d;
   $bg-main-menu: #ffffff;
 
-
   .wrapper-site {
     background-color: #2c2c2c;
     display: flex;
@@ -29,7 +28,7 @@ body {
       height: 60px;
       border-top: 1px solid $border-color;
       margin-top: -61px;
-     
+
       .stab-logo {
         display: flex;
         flex: 1 1 660px;
@@ -40,7 +39,7 @@ body {
           flex: 0 0 330px;
           height: 60px;
           align-items: center;
-          %logo-font{
+          %logo-font {
             font-family: "Franklin Gothic Medium";
             font-size: 24px;
             font-weight: bold;
@@ -83,7 +82,7 @@ body {
           padding: 0 10px 0 40px;
           background: linear-gradient(to right, #1f1f1f, #0b0b0b);
 
-          a {
+          .tagline-link {
             font-family: "Franklin Gothic Medium";
             font-size: 12px;
             color: $header-font-color;
@@ -150,7 +149,7 @@ body {
       @media screen and (max-width: 800px) {
         height: 120px;
         flex-wrap: wrap;
-        .search{
+        .search {
           flex: 1 0 330px;
         }
       }
@@ -170,7 +169,7 @@ body {
         font-family: Arial;
         font-size: 13px;
 
-        img {
+        .content-photo {
           max-width: 100%;
           height: auto;
           float: left;
@@ -178,17 +177,18 @@ body {
         }
 
         .menu {
-          ul {
+          .content-nav {
             display: flex;
             padding: 0;
             margin: 10px 0 0 0;
             list-style: none;
-            @media screen and (max-width: 900px) and (min-width: 800px) {
+            @media screen and (max-width: 900px) and (min-width: 801px),
+              (max-width: 569px) {
               flex-direction: column;
             }
 
-            li {
-              a {
+            .content-nav-child {
+              .content-nav-btn {
                 text-decoration: none;
                 color: $link-color;
                 font-size: 14px;
@@ -262,9 +262,9 @@ body {
           background-repeat: no-repeat;
           background-position: 95% 50%;
           cursor: pointer;
-          max-width: 330px;
+          width: 330px;
 
-          a {
+          .subscribe-link {
             font-family: Arial;
             font-size: 18px;
             font-weight: bold;
@@ -280,13 +280,14 @@ body {
           font-size: 10px;
           border: $border-sbar;
           text-decoration: none;
+          width: 330px;
 
-          img {
+          .banner {
             float: left;
             margin: 9px;
           }
 
-          a {
+          .banners-link {
             text-decoration: none;
             color: #424242;
 
@@ -308,6 +309,7 @@ body {
         .community {
           border: $border-sbar;
           padding: 10px 18px;
+          width: 330px;
 
           h3 {
             font-family: Arial;
@@ -325,6 +327,67 @@ body {
               display: flex;
               list-style: none;
               height: 40px;
+
+              .one,
+              .two,
+              .three,
+              .four {
+                border-bottom: $border-sbar;
+                position: relative;
+                width: 72px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+
+                .nav-btn,
+                .link-count,
+                .nav-btn-child {
+                  font-family: Arial;
+                  font-size: 12px;
+                  font-weight: normal;
+                  text-decoration: none;
+                  color: #424242;
+                }
+
+                .submenu {
+                  font-size: 10px;
+                  position: absolute;
+                  padding: 0 10px 0 10px;
+                  top: 40px;
+                  left: 1px;
+                  background-color: $bg-main-menu;
+
+                  &.one1 {
+                    left: 0px;
+                  }
+                  &.two2 {
+                    left: -73px;
+                  }
+                  &.three3 {
+                    left: -145px;
+                  }
+                  &.four4 {
+                    left: -217px;
+                  }
+                  &.hidden {
+                    display: none;
+                  }
+
+                  .submenu-child {
+                    display: flex;
+                    width: 268px;
+                    height: 35px;
+                    padding: 0 3px 0 3px;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-bottom: 1px #d8d8d8 solid;
+
+                    &:last-child {
+                      border: none;
+                    }
+                  }
+                }
+              }
 
               .one:hover,
               .two:hover,
@@ -346,68 +409,6 @@ body {
                   border-left: none;
                 }
               }
-
-              li {
-                border-bottom: $border-sbar;
-                position: relative;
-                width: 72px;
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                a {
-                  font-family: Arial;
-                  font-size: 12px;
-                  font-weight: normal;
-                  text-decoration: none;
-                  color: #424242;
-                }
-
-                p {
-                  font-family: Arial;
-                  font-size: 12px;
-                  font-weight: normal;
-                  text-decoration: none;
-                  color: #424242;
-                }
-
-                .submenu {
-                  font-size: 10px;
-                  position: absolute;
-                  padding: 0 10px 0 10px;
-                  top: 40px;
-                  left: 1px;
-                  background-color: $bg-main-menu;
-
-                  &.one1 {
-                    left: 1px;
-                  }
-                  &.two2 {
-                    left: -72px;
-                  }
-                  &.three3 {
-                    left: -144px;
-                  }
-                  &.four4 {
-                    left: -216px;
-                  }
-                  &.hidden {
-                    display: none;
-                  }
-
-                  li {
-                    display: flex;
-                    width: 267px;
-                    height: 35px;
-                    padding: 0 3px 0 3px;
-                    justify-content: space-between;
-                    border-bottom: 1px #d8d8d8 solid;
-
-                    &:last-child {
-                      border: none;
-                    }
-                  }
-                }
-              }
             }
           }
         }
@@ -420,7 +421,7 @@ body {
           border: $border-sbar;
           width: 330px;
 
-          a {
+          .nikon-link {
             font-family: Arial;
             font-size: 12px;
             text-decoration: none;
@@ -431,7 +432,7 @@ body {
           }
         }
 
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 800px) and (min-width: 661px) {
           grid-template-rows: repeat(15, 50px);
           grid-template-columns: 50% 50%;
           .subscribe {
@@ -461,18 +462,28 @@ body {
           grid-template-columns: auto;
           .subscribe {
             grid-row: 1/2;
+            justify-self: center;
+            border: none;
           }
           .navigation {
             grid-row: 9/17;
+            justify-self: center;
+            border: none;
           }
           .community {
             grid-row: 17/25;
+            justify-self: center;
+            border: none;
           }
           .banners {
             grid-row: 2/9;
+            justify-self: center;
+            border: none;
           }
           .nikon {
             grid-row: 25/32;
+            justify-self: center;
+            border: none;
           }
         }
       }
@@ -492,7 +503,7 @@ body {
       font-size: 15px;
       color: #484848;
 
-      a {
+      .footer-link {
         color: $link-color;
         text-decoration: none;
       }
@@ -511,7 +522,7 @@ body {
         background-color: #070707;
         font-size: 13px;
         %icon-style {
-          img {
+          .footer-header-icon {
             float: left;
             margin: 0 5px 0 0;
           }
@@ -524,12 +535,12 @@ body {
           font-size: 20px;
         }
 
-        ul {
+        .footer-list {
           list-style: none;
           min-width: 100%;
           padding: 0;
 
-          li {
+          .footer-list-child {
             border-bottom: 1px solid #121212;
             padding: 10px 0 10px 0;
 
@@ -549,7 +560,7 @@ body {
           grid-area: about;
           @extend %icon-style;
           padding: 20px;
-          p {
+          .footer-txt {
             margin: 20px 0 20px 0;
           }
         }
@@ -558,7 +569,7 @@ body {
           grid-area: write;
           @extend %icon-style;
           padding: 20px;
-          p {
+          .footer-txt {
             margin: 20px 0 20px 0;
           }
         }
@@ -576,6 +587,7 @@ body {
             "twitter friends"
             "about write";
         }
+
         @media screen and (max-width: 550px) {
           grid-template-columns: 330px;
           justify-content: center;
@@ -595,8 +607,9 @@ body {
         justify-content: space-between;
         align-items: center;
         height: 55px;
+        
         %margin-r {
-          p {
+          .footer-txt {
             margin-right: 5px;
           }
         }
@@ -608,14 +621,12 @@ body {
         .powered {
           display: flex;
           width: 180px;
+          margin: 0 0 0 25px;
           @extend %margin-r;
 
           &::after {
-            content: "·"; /*внутри не работают спец символы*/
+            content: "\00b7";
             margin-left: 10px;
-            @media screen and (max-width: 520px) {
-              content: none;
-            }
           }
         }
 
@@ -626,20 +637,22 @@ body {
         }
       }
 
-      @media screen and (max-width: 520px) {
-        .powered {
-          flex-direction: column;
-          /* &::after{
-          content: none;   //как обратиться к нему здесь ? в таком виде не работает
-        }   */
-        }
-        .theme {
-          flex-direction: column;
+      @media screen and (max-width: 620px) {
+        .footer {
+          .powered {
+            flex-direction: column;
+            &::after {
+              content: none;
+            }
+          }
+          .theme {
+            flex-direction: column;
+          }
         }
       }
     }
   }
-  
+
   .black {
     background-color: #070707;
     height: 80px;
