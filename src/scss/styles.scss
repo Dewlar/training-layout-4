@@ -10,13 +10,20 @@ body {
   display: flex;
   flex-direction: column;
   --link-color:#0085b8;
-  // $link-color: #0085b8;
-  $header-font-color: #ffffff;
-  $border-color: #6d6d6d;
-  $bg-main-menu: #ffffff;
+  --header-font-color: #ffffff;
+  --border-color: #6d6d6d;
+  --bg-main-menu: #ffffff;
+  --bg:#2c2c2c;
+  --bg-form-search:#636363;
+  --sidebar-header-color:#333333;
+  --sedebar-menu-link-color:#424242;
+  --bg-sub-footer-color:#070707;
+  --bg-footer-color:#000000;
+  --footer-text-color:#484848;
+  --footer-header-color:#cdcdcd;
 
   .wrapper-site {
-    background-color: #2c2c2c;
+    background-color: var(--bg);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,13 +34,13 @@ body {
       width: 100%;
       align-self: none;
       height: 60px;
-      border-top: 1px solid $border-color;
+      border-top: 1px solid var(--border-color);
       margin-top: -61px;
 
       .stab-logo {
         display: flex;
         flex: 1 1 660px;
-        border-bottom: 1px solid $border-color;
+        border-bottom: 1px solid var(--border-color);
 
         .logo {
           display: flex;
@@ -44,7 +51,7 @@ body {
             font-family: "Franklin Gothic Medium";
             font-size: 24px;
             font-weight: bold;
-            color: $header-font-color;
+            color: var(--header-font-color);
           }
 
           background: linear-gradient(to right, #33b2d9, #0097c9);
@@ -86,7 +93,7 @@ body {
           .tagline-link {
             font-family: "Franklin Gothic Medium";
             font-size: 12px;
-            color: $header-font-color;
+            color: var(--header-font-color);
             text-decoration: none;
           }
         }
@@ -97,13 +104,13 @@ body {
         flex: 0 0 330px;
         align-items: center;
         height: 60px;
-        background-color: #2c2c2c;
+        background-color: var(--bg);
 
         .search {
           flex: 0 0 50px;
           font-family: "Franklin Gothic Medium";
           font-size: 13px;
-          color: $header-font-color;
+          color: var(--header-font-color);
           margin: 0 0 0 20px;
         }
 
@@ -122,11 +129,11 @@ body {
           }
 
           input[type="search"] {
-            border: 2px solid $border-color;
+            border: 2px solid var(--border-color);
             border-right: hidden;
             outline: none;
             flex: 1 1 180px;
-            background: #636363;
+            background: var(--bg-form-search);
             padding-left: 10px;
             @extend %input-font;
 
@@ -137,11 +144,11 @@ body {
 
           input[type="submit"] {
             flex: 0 0 40px;
-            border: 2px solid $border-color;
+            border: 2px solid var(--border-color);
             border-left: hidden;
             background: url(../images/header/Search-Icon-copy1.png) no-repeat
               50% 50%;
-            background-color: #636363;
+            background-color: var(--bg-form-search);
             cursor: pointer;
           }
         }
@@ -162,7 +169,7 @@ body {
       grid-template-areas: "cntnt sdbr";
 
       max-width: 1000px;
-      background-color: $bg-main-menu;
+      background-color: var(--bg-main-menu);
 
       .content {
         grid-area: cntnt;
@@ -184,7 +191,7 @@ body {
             margin: 10px 0 0 0;
             list-style: none;
             @media screen and (max-width: 900px) and (min-width: 801px),
-              (max-width: 569px) {
+              (max-width: 578px) {
               flex-direction: column;
             }
 
@@ -270,7 +277,7 @@ body {
             font-size: 18px;
             font-weight: bold;
             text-decoration: none;
-            color: #333333;
+            color: var(--sidebar-header-color);
           }
         }
 
@@ -290,7 +297,7 @@ body {
 
           .banners-link {
             text-decoration: none;
-            color: #424242;
+            color: var(--sedebar-menu-link-color);
 
             &:last-child {
               margin: 0 0 0 50px;
@@ -316,7 +323,7 @@ body {
             font-family: Arial;
             font-weight: bold;
             font-size: 24px;
-            color: #333333;
+            color: var(--sidebar-header-color);
           }
 
           .menu-box {
@@ -347,7 +354,7 @@ body {
                   font-size: 12px;
                   font-weight: normal;
                   text-decoration: none;
-                  color: #424242;
+                  color: var(--sedebar-menu-link-color);
                 }
 
                 .submenu {
@@ -356,7 +363,7 @@ body {
                   padding: 0 10px 0 10px;
                   top: 40px;
                   left: 1px;
-                  background-color: $bg-main-menu;
+                  background-color: var(--bg-main-menu);
 
                   &.one1 {
                     left: 0px;
@@ -388,6 +395,13 @@ body {
                     }
                   }
                 }
+              }              
+
+              .default-menu-tab{
+                /*default menu tab*/
+                background-color: var(--bg-main-menu);
+                  border-right: $border-sbar;
+                  border-bottom: none;
               }
 
               .one:hover,
@@ -398,7 +412,7 @@ body {
                   display: block;
                 }
                 & {
-                  background-color: $bg-main-menu;
+                  background-color: var(--bg-main-menu);
                   border-left: $border-sbar;
                   border-right: $border-sbar;
                   border-bottom: none;
@@ -426,7 +440,7 @@ body {
             font-family: Arial;
             font-size: 12px;
             text-decoration: none;
-            color: #000000;
+            color: var(--sedebar-menu-link-color);
             position: relative;
             top: 78%;
             left: 35%;
@@ -499,10 +513,10 @@ body {
 
     footer {
       max-width: 1000px;
-      background-color: #000000;
+      background-color: var(--bg-footer-color);
       font-family: Arial;
       font-size: 15px;
-      color: #484848;
+      color: var(--footer-text-color);
 
       .footer-link {
         color: var(--link-color);
@@ -520,7 +534,7 @@ body {
           "twitter write friends";
 
         min-height: 465px;
-        background-color: #070707;
+        background-color: var(--bg-sub-footer-color);
         font-size: 13px;
         %icon-style {
           .footer-header-icon {
@@ -530,7 +544,7 @@ body {
         }
 
         h3 {
-          color: #cdcdcd;
+          color: var(--footer-header-color);
           font-family: Arial;
           font-weight: bold;
           font-size: 20px;
@@ -542,7 +556,7 @@ body {
           padding: 0;
 
           .footer-list-child {
-            border-bottom: 1px solid #121212;
+            border-bottom: 1px solid #1b1b1b;
             padding: 10px 0 10px 0;
 
             &:last-child {
